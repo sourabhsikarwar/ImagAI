@@ -1,9 +1,13 @@
+import Navbar from "./components/Navbar";
+import Home from "./pages/Home";
+
 function App() {
   return (
-    <div className="text-3xl text-white bg-slate-800 p-4 text-center">
-      ImagAI - Your AI Powered Image generator and showcase platform
+    <div className="container max-w-7xl mx-auto">
+      <Navbar />
+      <Home />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
