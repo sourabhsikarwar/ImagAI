@@ -23,20 +23,18 @@ router.get('/', async (req, res) => {
 })
 
 // posting data to database route
-router.route('/').post( async (req, res) => {
+router.post('/', async (req, res) => {
     try {
         const { name, prompt, photo } = req.body
         const photoUrl = await cloudinary.uploader.upload(photo)
 
         const newPost = await Post.create({
-            name,
-            prompt,
+            name: name,
+            prompt: prompt,
             photo: photoUrl.url,
         })
-        console.log('chal gya')
         res.status(201).json({success: true, data: newPost})
     } catch (error) {
-        console.log('yaha bug he')
         res.status(500).json({success: false, message: error})
     }
 })

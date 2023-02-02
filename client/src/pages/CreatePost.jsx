@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { redirect } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import FormField from "../components/FormField";
 import preview from "../assets/preview.png";
 import Loader from "../components/Loader";
@@ -13,6 +13,7 @@ const CreatePost = () => {
     prompt: "",
     photo: "",
   });
+  const navigate = useNavigate()
 
   const generateImg = async () => {
     if(form.prompt){
@@ -52,7 +53,7 @@ const CreatePost = () => {
           body: JSON.stringify(form)
         })
         await response.json()
-        redirect('/')
+        navigate("/")
       } catch (error) {
         alert(error)
       } finally {
@@ -80,8 +81,7 @@ const CreatePost = () => {
           Create
         </h1>
         <p className="text-gray-500 text-md w-full md:w-3/4">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde quis
-          fuga modi!
+          Create your own AI image with custom prompt.
         </p>
       </div>
 
@@ -143,8 +143,7 @@ const CreatePost = () => {
             Share this with Community
           </h2>
           <p className="mb-4 text-gray-500 text-md">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-            Consequuntur, aliquid!
+            Share your AI generated image to community collection to showcase the world.
           </p>
           <button
             type="submit"

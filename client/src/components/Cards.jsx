@@ -4,7 +4,7 @@ import { downloadImg } from "../utils/downloadImg.js";
 
 const Cards = ({ _id, name, prompt, photo }) => {
   return (
-    <div className="rounded-xl relative group shadow-sm hover:shadow-md w-1/4">
+    <div className="rounded-xl relative group shadow-sm hover:shadow-md">
       <img
         src={photo}
         alt={prompt}

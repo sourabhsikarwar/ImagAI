@@ -12,7 +12,7 @@ const RenderCards = ({ data, title }) => {
 
 const Home = () => {
   const [loading, setLoading] = useState(false);
-  const [searchText, setSearchText] = useState(null);
+  const [searchText, setSearchText] = useState("");
   const [allPosts, setAllPosts] = useState();
   const [searchedResults, setSearchedResults] = useState(null);
   const [searchTimeout, setSearchTimeout] = useState(null);
@@ -66,9 +66,7 @@ const Home = () => {
           The ImagAI Community Showcase
         </h1>
         <p className="text-gray-500 w-full md:w-3/4">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim sint
-          quibusdam ea assumenda quidem impedit quaerat debitis, in explicabo
-          quasi temporibus necessitatibus dolorum. Ratione.
+          Experience the power of AI with these AI generated image. Create your own image with custom prompt and share it with the community.
         </p>
       </div>
 
@@ -89,7 +87,7 @@ const Home = () => {
                 <span className="font-semibold">{searchText}</span>
               </h2>
             )}
-            <div className="flex flex-wrap justify-between mt-4">
+            <div className="mt-4 grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4">
               {searchText ? (
                 <RenderCards data={searchedResults} title="No search results found" />
               ) : (
